@@ -38,28 +38,52 @@
     
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
-
+      const bornFifteen = inventors.filter(person => person.year > 1500 && person.year < 1600)
+      console.table(bornFifteen)
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
-
+      const arrayOfNames = inventors.map(person => {
+        return `${person.first} ${person.last}`
+      })
+      console.table(arrayOfNames);
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
-
+      const oldestToYoungest = inventors.sort((a , b) => b.year - a.year)
+      console.table(oldestToYoungest)
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
-
+      const livedYear = inventors.map(item => item.passed - item.year)
+      const totalYear = livedYear.reduce((a, b) => {
+        return a + b
+      })
+      console.table(livedYear)
+      console.log(totalYear)
     // 5. Sort the inventors by years lived
-
+      const yearLived = inventors.map(item => item.passed - item.year)
+      const oldest = yearLived.sort((a , b) => b - a)
+      console.table(oldest)
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
-
+      const sorting = people.map(item => item.split(',' , 2))
+      console.table(sorting)
+      const reversedArray = sorting.map(item => item.reverse())
+      console.table(reversedArray)
+      console.table(reversedArray.sort())
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const datas = data.reduce((a, b) => {
+      if(a === b) {
+        return a;
+      }else{
+        return b
+      }
+    })
+    console.log(datas)
 
   </script>
 </body>
